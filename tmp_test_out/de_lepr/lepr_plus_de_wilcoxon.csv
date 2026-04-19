@@ -1,0 +1,6 @@
+gene,log2_fold_change,padj,pval,n_cells_pos,n_cells_neg,method,stratum
+Stat3,,,,0,0,wilcoxon,all_Lepr_plus
+Socs3,,,,0,0,wilcoxon,all_Lepr_plus
+Pomc,,,,0,0,wilcoxon,all_Lepr_plus
+Agrp,,,,0,0,wilcoxon,all_Lepr_plus
+Npy,,,,0,0,wilcoxon,all_Lepr_plus

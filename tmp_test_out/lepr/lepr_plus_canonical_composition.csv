@@ -1,0 +1,6 @@
+canonical_label,fraction
+AgRP_neurons,0.275
+glutamatergic_neurons,0.275
+GABAergic_neurons,0.25
+POMC_neurons,0.125
+tanycytes_glia,0.075
