@@ -1,0 +1,45 @@
+Campbell Arc-ME scRNA-seq pipeline — repository layout
+======================================================
+(Exclude .venv/, tmp_*, and __pycache__/ from version control in production.)
+
+cso1-code/
+├── app.py                         # Streamlit dashboard: streamlit run app.py
+├── PROJECT_STRUCTURE.txt          # This file
+├── requirements.txt               # Python dependencies (Scanpy, Streamlit, gseapy, etc.)
+│
+├── arc_me_sc/                     # Main Python package (modular pipeline)
+│   ├── __init__.py
+│   ├── config.py                  # Paths, QC/embedding/cluster params, marker sets
+│   ├── io.py                      # Load expression.txt.gz + meta.txt → AnnData
+│   ├── qc.py                      # QC metrics, filters, optional Scrublet
+│   ├── embedding.py               # HVG → scale → PCA → neighbors → UMAP
+│   ├── clustering.py              # Leiden / Louvain
+│   ├── annotation.py              # Marker scores, canonical labels, dot plots
+│   ├── pipeline/                  # Orchestrated “steps” (production entrypoints)
+│   │   ├── __init__.py
+│   │   ├── step_01_ingest_qc_dimred.py   # Step 1: load → QC → PCA/UMAP
+│   │   └── step_02_cluster_annotate.py # Step 2: cluster → score → label → viz hooks
+│   └── viz/                       # Publication-style figures (matplotlib + R templates)
+│       ├── __init__.py
+│       ├── publication.py         # UMAP, DotPlot, Volcano (matplotlib / Scanpy)
+│       └── ggplot2_templates.R    # Optional ggplot2 recipes (RStudio)
+│
+├── scripts/
+│   ├── run_step01_step02.py       # Recommended entry: Steps 1–2 only + pub figures
+│   ├── run_arc_me_analysis.py     # Full pipeline (Lepr, DE, pathways, CCC, …)
+│   ├── clusterprofiler_arc_me.R
+│   └── cellchat_arc_me.R
+│
+├── data/                          # Place GSE93374-style inputs here (not committed)
+│   ├── expression.txt.gz          # Batch-corrected log-normalized matrix
+│   └── meta.txt                   # Cell metadata (incl. condition: Fed/Fasted)
+│
+└── results/                       # Pipeline outputs (figures, h5ad, CSVs; gitignore locally)
+    ├── figures/                   # Scanpy default figdir
+    └── publication/             # High-DPI figures from arc_me_sc.viz.publication
+
+Suggested workflow
+------------------
+1. Copy preprocessed matrices into data/.
+2. Run:  python scripts/run_step01_step02.py --data-dir data --out-dir results
+3. Inspect results/publication/ and results/arc_me_step02.h5ad (or path set by script).
