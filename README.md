@@ -1,7 +1,7 @@
 # ObesiMap
 **Targeting obesity at the cellular source.**
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](#) *(Link your live app here)*
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Scanpy](https://img.shields.io/badge/Scanpy-Single%20Cell-green.svg)](https://scanpy.readthedocs.io/en/stable/)
 
@@ -31,15 +31,20 @@ If you wish to run the biological pipeline and dashboard locally:
 ```bash
 git clone [https://github.com/yourusername/arc-me-explorer.git](https://github.com/yourusername/arc-me-explorer.git)
 cd arc-me-explorer
-2. Install dependencies
+```
 
-Bash
+
+
+2. Install dependencies
+```bash
 pip install -r requirements.txt
+```
 3. Run the application
 
-Bash
+```bash
 python -m streamlit run app.py
-📂 Repository Structure
+```
+Repository Structure
 app.py — The main Streamlit frontend dashboard.
 requirements.txt — Python package dependencies.
 Biological Deliverables Addressed
