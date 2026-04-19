@@ -21,8 +21,6 @@ Our project ObesiMap provides an interactive, end-to-end bioinformatics dashboar
 * **Frontend Dashboard:** `Streamlit`, `Plotly`
 * **Data Handling:** `Pandas`, `NumPy`
 
-## Live Demo
-You can interact with the live dashboard here: **[INSERT_YOUR_STREAMLIT_CLOUD_LINK_HERE]**
 
 ## How to Install/Local Installation & Usage
 If you wish to run the biological pipeline and dashboard locally:
